@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0088)http://preview-pages.neodvance.com/page/571940805524126ab07e17e6cdfdfd79cbb6b24b?preview -->
+<html lang="ru-RU">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="../static/jquery.min.js"></script>
+    <title>Кигуруми</title>
+    <meta name="viewport" content="width=480">
+    <meta name="description" content="Кигуруми">
+    <link rel="shortcut icon"
+          href="http://preview-pages.neodvance.com/assets_page/571940805524126ab07e17e6cdfdfd79cbb6b24b/favicon.png"
+          type="image/x-icon">
+    <link rel="stylesheet" href="../static/reset.css">
+    <link rel="stylesheet" href="../static/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Кигуруми">
+    <meta property="og:description"
+          content="Теплые, комфортные и качественно прошитые угги с заманчивой скидкой. Более 10-ти различных моделей и цветов на любой вкус и цвет. Оснащены нескользящей подошвой из термостойкого полиуретана.">
+    <meta property="og:url" content="https://preview-pages.neodvance.com/page/571940805524126ab07e17e6cdfdfd79cbb6b24b">
+</head>
+<body>
+
+
+<div class="main_wrapper">
+
+
+    <!-- fixed block -->
+    <div class="fixed_section">
+        <div class="fixed_block clearfix">
+            <h3>Кигуруми</h3>
+            <a class="button"
+               href="#cat">Выбрать
+                кигуруми</a>
+        </div>
+    </div>
+    <!-- /fixed block -->
+
+
+    <!-- offer -->
+    <div class="offer_section">
+        <div class="offer_title">
+            <h1>Распродажа</h1>
+            <p>Удобная и стильная пижама</p>
+        </div>
+        <img src="../static/1574955827667.JPEG" alt="">
+    </div>
+    <!--    offer-->
+
+
+    <!--    benefits-->
+    <section class="list_section benefits2">
+        <div class="title_block">
+            <h2>Почему именно наша пижама ?</h2>
+        </div>
+        <div class="list1 image80x80">
+            <div class="list_item clearfix">
+                <div class="image_block">
+                    <div class="image_wrapper">
+                        <img src="../static/gold.jpg" alt="">
+                    </div>
+                </div>
+                <div class="text_block">
+                    <p>Кигуруми сделаны из велсофта или пушистого кораллового флиса. Этот материал приятен на ощупь и
+                        хорошо стирается в стиральной машине.</p>
+                </div>
+            </div>
+            <div class="list_item clearfix">
+                <div class="image_block">
+                    <div class="image_wrapper">
+                        <img src="../static/gold.jpg" alt="">
+                    </div>
+                </div>
+                <div class="text_block">
+                    <p>Мы продаём только оригинальные кигуруми самого лучшего качества. Они не рвутся и не
+                        выцветают.</p>
+                </div>
+            </div>
+
+            <div class="list_item clearfix">
+                <div class="image_block">
+                    <div class="image_wrapper">
+                        <img src="../static/gold.jpg" alt="">
+                    </div>
+                </div>
+                <div class="text_block">
+                    <p>Решили по какой-то причине поменять или вернуть заказ? Не проблема, сделаем без вопросов! </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--benefits-->
+
+
+    <!-- catalog -->
+    {% for i in item %}
+    <div class="catalog" id="cat">
+
+        <div class="cat">
+            <h3>{{ i.name}}</h3>
+            <div class="size"><span>Размеры:</span> от {{ i.size }}</div>
+            <div><img style="margin: auto" src="{{ i.img.url }}" alt=""></div>
+            <ul class="cprice">
+                <li>{{ i.price1 }}</li>
+                <li>{{ i.price2 }}</li>
+            </ul>
+            <a href="https://{{ i.button_ym }}"
+               class="cbutton">Оформить заказ</a>
+        </div>
+    {% endfor %}
+        <a href="#cat"
+           class="gotop">В начало</a>
+
+    </div>
+    <!--catalog-->
+
+
+    <!--size-->
+    <section class="size-table">
+
+        <div class="title_block">
+            <h2>Подберите размер вашего кигуруми</h2>
+        </div>
+
+        <div><img src="../static/88.jpg" alt=""></div>
+
+        <h3>Затрудняетесь или сомневаетесь?</h3>
+
+        <div class="helptext">Свяжитесь с нашим консультантом, он поможет подобрать оптимальный размер.</div>
+
+        <a href="mailto:kigurumihelp@gmail.com?subject=Помощь по размеру"
+           class="cbutton">Получить помощь</a>
+
+    </section>
+    <!--size-->
+
+
+    <!-- reviews 1 -->
+    <section class="reviews1_section">
+        <div class="title_block">
+            <h2>Отзывы покупателей</h2>
+        </div>
+        {% for obj in review %}
+        <div class="content_block">
+            <div class="author_block">
+                <div class="avatar">
+                    <img src="{{ obj.userpic.url }}" alt="">
+                </div>
+                <div class="author_info">
+                    <div class="name">{{ obj.user }}</div>
+                    <div class="text">{{ obj.city }}</div>
+                </div>
+            </div>
+            <img class="post_image" src="{{ obj.reviewpic.url }}" alt="">
+            <div class="in-stats_block">
+                <div class="icons clearfix">
+                    <div class="icon like_icon"></div>
+                    <div class="icon comment_icon"></div>
+                    <div class="icon send_icon"></div>
+                    <div class="icon share_icon"></div>
+                </div>
+                <div class="likes_count">Нравится: {{ obj.likes }}</div>
+            </div>
+            <div class="text_block">
+                <p>{{ obj.review }}</p>
+            </div>
+            <div class="in-date">{{ obj.date }} дня назад</div>
+        </div>
+        {% endfor %}
+    </section>
+    <!-- /reviews1 -->
+
+
+    <!-- order info 1 -->
+    <section class="list_section order_info1">
+        <div class="title_block">
+            <h2>Доставка и оплата</h2>
+        </div>
+        <div class="list1 image90x90 dark_icon ok-square_icon">
+            <div class="list_item clearfix">
+                <div class="image_block">
+                    <div class="image_wrapper">
+                        <img src="../static/order_info1__icon1.png" alt="">
+                    </div>
+                </div>
+                <div class="text_block">
+                    <h4>Быстрая доставка</h4>
+                    <p>Почтой или курьером в течение 1-10 дней. Стоимость доставки от 390р. Оставьте заявку и оператор
+                        расскажет, какая доставка будет удобнее именно для вас.</p>
+                </div>
+            </div>
+            <div class="list_item clearfix">
+                <div class="image_block">
+                    <div class="image_wrapper">
+                        <img src="../static/order_info1__icon2.png" alt="">
+                    </div>
+                </div>
+                <div class="text_block">
+                    <h4>Оплата при получении</h4>
+                    <p>Мы не принимаем предоплат. Оплата производится только при получении заказа на руки.</p>
+                </div>
+            </div>
+            <div class="list_item clearfix">
+                <div class="image_block">
+                    <div class="image_wrapper">
+                        <img src="../static/order_info1__icon3.png" alt="">
+                    </div>
+                </div>
+                <div class="text_block">
+                    <h4>Гарантии</h4>
+                    <p>Вся продукция прошла проверку и полностью сертифицирована! Для вас работает круглосуточная линия
+                        поддержки покупателей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--    order-->
+
+
+    <!--    order 2.1-->
+    <section>
+        <div class="timer_block clearfix">
+            <p>До повышения цены осталось:</p>
+            <div class="timer clearfix">
+                <div class="timer_item">
+                    <div class="count hours">05</div>
+                    <div class="text">часов</div>
+                </div>
+                <div class="timer_item">
+                    <div class="count minutes">00</div>
+                    <div class="text">минут</div>
+                </div>
+                <div class="timer_item">
+                    <div class="count seconds">19</div>
+                    <div class="text">секунд</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /order 2.1 -->
+
+
+    <!-- footer -->
+    <footer>
+        <img src="../static/black-320.png" alt="">
+        <a target="_blank"
+           href="http://preview-pages.neodvance.com/politics/?l=571940805524126ab07e17e6cdfdfd79cbb6b24b">Политика
+            конфиденциальности</a><br>
+        <a target="_blank"
+           href="http://preview-pages.neodvance.com/agreement/?l=571940805524126ab07e17e6cdfdfd79cbb6b24b">Пользовательское
+            соглашение</a>
+    </footer>
+    <!-- /footer -->
+</div>
+<!-- scripts -->
+<script src="../static/owl.carousel.min.js"></script>
+<script src="../static/scripts.js"></script>
+<!-- /scripts -->
+
+</body>
+</html>

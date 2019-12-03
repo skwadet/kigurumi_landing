@@ -91,22 +91,45 @@
 
     <!-- catalog -->
     {% for i in item %}
-    <div class="catalog" id="cat">
+        <div class="catalog" id="cat">
 
         <div class="cat">
-            <h3>{{ i.name}}</h3>
+            <h3>{{ i.name }}</h3>
             <div class="size"><span>Размеры:</span> от {{ i.size }}</div>
             <div><img style="margin: auto" src="{{ i.img.url }}" alt=""></div>
             <ul class="cprice">
                 <li>{{ i.price1 }}</li>
-                <li>{{ i.price2 }}</li>
+                <li>{{ i.price2 }}р</li>
             </ul>
-            <a href="https://{{ i.button_ym }}"
-               class="cbutton">Оформить заказ</a>
+
+            <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                <input type="hidden" name="targets" value="покупка кигуруми '{{ i.name }}'">
+                <input type="hidden" name="receiver" value="410019860659747">
+                <input type="hidden" name="formcomment"
+                       value="{{ i.name }}">
+                <input type="hidden" name="short-dest"
+                       value="{{ i.name }}">
+                <input type="hidden" name="quickpay-form" value="small">
+                <input type="hidden" name="sum" value="2499" data-type="number">
+                <input type="hidden" name="need-fio" value="true">
+                <input type="hidden" name="need-phone" value="true">
+                <input type="hidden" name="need-address" value="true">
+                <div style="text-align: center">
+                    <p>Укажите размер</p>
+                    <label><input type="radio" name="comment" value="XS">XS</label>
+                    <label><input type="radio" name="comment" value="S">S</label>
+                    <label><input type="radio" name="comment" value="M">M</label>
+                    <label><input type="radio" name="comment" value="L">L</label>
+                    <label><input type="radio" name="comment" value="XL">XL</label></div>
+                <input type="hidden" name="paymentType" value="AC">
+                <div style="text-align: center"><input class="cbutton" type="submit" value="Оформить заказ">
+                </div>
+            </form>
+
         </div>
     {% endfor %}
-        <a href="#cat"
-           class="gotop">В начало</a>
+    <a href="#cat"
+       class="gotop">В начало</a>
 
     </div>
     <!--catalog-->
@@ -138,31 +161,31 @@
             <h2>Отзывы покупателей</h2>
         </div>
         {% for obj in review %}
-        <div class="content_block">
-            <div class="author_block">
-                <div class="avatar">
-                    <img src="{{ obj.userpic.url }}" alt="">
+            <div class="content_block">
+                <div class="author_block">
+                    <div class="avatar">
+                        <img src="{{ obj.userpic.url }}" alt="">
+                    </div>
+                    <div class="author_info">
+                        <div class="name">{{ obj.user }}</div>
+                        <div class="text">г. {{ obj.city }}</div>
+                    </div>
                 </div>
-                <div class="author_info">
-                    <div class="name">{{ obj.user }}</div>
-                    <div class="text">{{ obj.city }}</div>
+                <img class="post_image" src="{{ obj.reviewpic.url }}" alt="">
+                <div class="in-stats_block">
+                    <div class="icons clearfix">
+                        <div class="icon like_icon"></div>
+                        <div class="icon comment_icon"></div>
+                        <div class="icon send_icon"></div>
+                        <div class="icon share_icon"></div>
+                    </div>
+                    <div class="likes_count">Нравится: {{ obj.likes }}</div>
                 </div>
-            </div>
-            <img class="post_image" src="{{ obj.reviewpic.url }}" alt="">
-            <div class="in-stats_block">
-                <div class="icons clearfix">
-                    <div class="icon like_icon"></div>
-                    <div class="icon comment_icon"></div>
-                    <div class="icon send_icon"></div>
-                    <div class="icon share_icon"></div>
+                <div class="text_block">
+                    <p>{{ obj.review }}</p>
                 </div>
-                <div class="likes_count">Нравится: {{ obj.likes }}</div>
+                <div class="in-date">{{ obj.date }} дней назад</div>
             </div>
-            <div class="text_block">
-                <p>{{ obj.review }}</p>
-            </div>
-            <div class="in-date">{{ obj.date }} дня назад</div>
-        </div>
         {% endfor %}
     </section>
     <!-- /reviews1 -->
@@ -182,8 +205,8 @@
                 </div>
                 <div class="text_block">
                     <h4>Быстрая доставка</h4>
-                    <p>Почтой или курьером в течение 1-10 дней. Стоимость доставки от 390р. Оставьте заявку и оператор
-                        расскажет, какая доставка будет удобнее именно для вас.</p>
+                    <p>Бесплатная доставка. Почтой в течении 10 дней. Если нужна быстрая доставка нажмите на вкладку
+                        "получить помощь" и мы постараемся отправить Вам кигуруми как можно быстрее.</p>
                 </div>
             </div>
             <div class="list_item clearfix">
@@ -193,8 +216,9 @@
                     </div>
                 </div>
                 <div class="text_block">
-                    <h4>Оплата при получении</h4>
-                    <p>Мы не принимаем предоплат. Оплата производится только при получении заказа на руки.</p>
+                    <h4>Гарантия оплаты</h4>
+                    <p>Мы принимаем платежи через проверенный платежный сервис, оплатить можно как картой, так и
+                        электронным кошельком</p>
                 </div>
             </div>
             <div class="list_item clearfix">
@@ -239,7 +263,6 @@
 
     <!-- footer -->
     <footer>
-        <img src="../static/black-320.png" alt="">
         <a target="_blank"
            href="http://preview-pages.neodvance.com/politics/?l=571940805524126ab07e17e6cdfdfd79cbb6b24b">Политика
             конфиденциальности</a><br>

@@ -19,7 +19,7 @@ class Review(models.Model):
     userpic = models.ImageField(upload_to='userpics/')
     reviewpic = models.ImageField(upload_to='reviewpics/')
     likes = models.CharField(max_length=30)
-    review = models.TextField(max_length=500)
+    review = models.TextField(max_length=10000)
     date = models.CharField(max_length=10)
 
     def _str_(self):

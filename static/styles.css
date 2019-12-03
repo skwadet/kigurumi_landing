@@ -9,6 +9,10 @@
     font-style: normal;
 }
 
+input[type="radio"]{
+    -webkit-appearance: radio;
+}
+
 @font-face {
     font-family: 'SegoeUI';
     src: url('../fonts/SegoeUI-Semibold.woff2') format('woff2'),
